@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - NOBLEVEST</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container-fluid vh-100">
+        <div class="row h-100">
+            <!-- Left Side - Branding -->
+            <div class="col-lg-6 d-none d-lg-flex bg-gradient-primary text-white">
+                <div class="d-flex flex-column justify-content-center align-items-center w-100 p-5">
+                    <div class="text-center mb-4">
+                        <div class="brand-logo mb-3 noblevest-logo">N</div>
+                        <h2 class="fw-bold mb-3">Join NOBLEVEST Today</h2>
+                        <p class="lead">Start your premium investment journey with access to exclusive opportunities in crypto, forex, and real estate markets.</p>
+                    </div>
+                    
+                    <div class="row text-center w-100 mt-4">
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <h3 class="stat-number text-accent">5K+</h3>
+                                <p class="stat-label">Happy Investors</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <h3 class="stat-number text-accent">$500</h3>
+                                <p class="stat-label">Min. Investment</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <h3 class="stat-number text-accent">24/7</h3>
+                                <p class="stat-label">Support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Side - Registration Form -->
+            <div class="col-lg-6 d-flex align-items-center">
+                <div class="w-100 p-4">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10 col-lg-10 col-xl-9">
+                            <!-- Mobile Logo -->
+                            <div class="text-center mb-4 d-lg-none">
+                                <div class="brand-logo mx-auto mb-2">N</div>
+                                <h3 class="text-gradient fw-bold">NOBLEVEST</h3>
+                            </div>
+                            
+                            <div class="card border-0 shadow-lg-custom">
+                                <div class="card-header text-center">
+                                    <h2 class="mb-0">Create Account</h2>
+                                    <p class="text-light mb-0">Join thousands of successful investors</p>
+                                </div>
+                                <div class="card-body p-4">
+                                    <!-- Alert Container -->
+                                    <div id="alertContainer"></div>
+                                    
+                                    <form id="registerForm" novalidate>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="fullName" class="form-label">Full Name</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                    <input type="text" class="form-control" id="fullName" name="fullName" placeholder="John Doe" required>
+                                                    <div class="invalid-feedback">Full name is required.</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="email" class="form-label">Email Address</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                                    <input type="email" class="form-control" id="email" name="email" placeholder="john@example.com" required>
+                                                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="phone" class="form-label">Phone Number</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="+1 (555) 000-0000" required>
+                                                    <div class="invalid-feedback">Please enter a valid phone number.</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="referralCode" class="form-label">Referral Code <small class="text-muted">(Optional)</small></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fas fa-gift"></i></span>
+                                                    <input type="text" class="form-control" id="referralCode" name="referralCode" placeholder="Enter referral code">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="password" class="form-label">Password</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                                    <input type="password" class="form-control" id="password" name="password" placeholder="Minimum 6 characters" minlength="6" required>
+                                                    <div class="invalid-feedback">Password must be at least 6 characters long.</div>
+                                                </div>
+                                                <small class="text-muted">Password must be at least 6 characters long</small>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                                                    <div class="invalid-feedback">Passwords do not match.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="terms" name="terms" required>
+                                                <label class="form-check-label" for="terms">
+                                                    I agree to the <a href="#terms" class="text-decoration-none">Terms & Conditions</a> and <a href="#privacy" class="text-decoration-none">Privacy Policy</a>
+                                                </label>
+                                                <div class="invalid-feedback d-block">You must accept the terms and conditions.</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="newsletter" name="newsletter">
+                                                <label class="form-check-label" for="newsletter">
+                                                    Subscribe to our newsletter for investment updates and market insights
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-primary w-100 mb-3">
+                                            <i class="fas fa-user-plus me-2"></i>Create Account
+                                        </button>
+                                    </form>
+                                    
+                                    <!-- Social Registration -->
+                                    <div class="text-center mb-3">
+                                        <div class="position-relative">
+                                            <hr>
+                                            <span class="position-absolute top-50 start-50 translate-middle bg-white px-3 text-muted">or</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row g-2 mb-4">
+                                        <div class="col-6">
+                                            <button class="btn btn-outline-dark w-100">
+                                                <i class="fab fa-google me-2"></i>Google
+                                            </button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button class="btn btn-outline-primary w-100">
+                                                <i class="fab fa-facebook me-2"></i>Facebook
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="text-center">
+                                        <p class="mb-0">Already have an account? 
+                                            <a href="login.html" class="text-decoration-none fw-medium">Sign in here</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-3">
+                                <small class="text-muted">
+                                    <i class="fas fa-shield-alt me-1"></i>
+                                    Your information is protected with bank-level security
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
