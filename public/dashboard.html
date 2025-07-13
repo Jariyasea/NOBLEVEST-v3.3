@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - NOBLEVEST</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="dashboard.html">
+                <span class="brand-logo">N</span> NOBLEVEST
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <span class="visually-hidden">Toggle navigation</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="dashboard.html"><i class="fas fa-tachometer-alt me-1"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="deposit.html"><i class="fas fa-plus-circle me-1"></i>Deposit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="withdraw.html"><i class="fas fa-minus-circle me-1"></i>Withdraw</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="invest.html"><i class="fas fa-chart-line me-1"></i>Invest</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="transfers.html"><i class="fas fa-exchange-alt me-1"></i>Transfers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="loan.html"><i class="fas fa-handshake me-1"></i>Loans</a>
+                    </li>
+                </ul>
+                <div class="navbar-nav">
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i> <span id="userName">Demo User</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#profile"><i class="fas fa-user me-2"></i>Profile</a></li>
+                            <li><a class="dropdown-item" href="#settings"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                            <li><a class="dropdown-item" href="blog.html"><i class="fas fa-blog me-2"></i>Blog</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid dashboard-container">
+        <!-- Welcome Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card bg-gradient-primary text-white border-0">
+                    <div class="card-body p-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h2 class="mb-2">Welcome back, <span id="welcomeName">Demo User</span>! 👋</h2>
+                                <p class="mb-0 opacity-90">Here's your investment overview for today</p>
+                            </div>
+                            <div class="col-md-4 text-md-end">
+                                <div class="d-flex gap-2 justify-content-md-end">
+                                    <a href="deposit.html" class="btn btn-accent">
+                                        <i class="fas fa-plus me-1"></i>Deposit
+                                    </a>
+                                    <a href="withdraw.html" class="btn btn-outline-light">
+                                        <i class="fas fa-minus me-1"></i>Withdraw
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="row g-4 mb-4">
+            <div class="col-md-3">
+                <div class="card border-0 shadow-custom h-100">
+                    <div class="card-body text-center">
+                        <div class="text-primary mb-2">
+                            <i class="fas fa-wallet fa-2x"></i>
+                        </div>
+                        <h5 class="card-title text-muted">Total Balance</h5>
+                        <h3 class="text-primary mb-0" id="totalBalance">$25,000.00</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0 shadow-custom h-100">
+                    <div class="card-body text-center">
+                        <div class="text-success mb-2">
+                            <i class="fas fa-chart-line fa-2x"></i>
+                        </div>
+                        <h5 class="card-title text-muted">Total Invested</h5>
+                        <h3 class="text-success mb-0" id="totalInvested">$15,000.00</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0 shadow-custom h-100">
+                    <div class="card-body text-center">
+                        <div class="text-warning mb-2">
+                            <i class="fas fa-coins fa-2x"></i>
+                        </div>
+                        <h5 class="card-title text-muted">Total Earnings</h5>
+                        <h3 class="text-warning mb-0" id="totalEarnings">$3,750.00</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0 shadow-custom h-100">
+                    <div class="card-body text-center">
+                        <div class="text-info mb-2">
+                            <i class="fas fa-users fa-2x"></i>
+                        </div>
+                        <h5 class="card-title text-muted">Referrals</h5>
+                        <h3 class="text-info mb-0" id="referralCount">12</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-4">
+            <!-- Referral Link -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-custom">
+                    <div class="card-header bg-gradient-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-link me-2"></i>Your Referral Link</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted mb-3">Share your referral link and earn 5% commission on every investment!</p>
+                        <div class="input-group">
+                            <label for="referralLink" class="visually-hidden">Referral Link</label>
+                            <input type="text" class="form-control" id="referralLink" value="https://noblevest.com/ref/USER123" readonly placeholder="Your referral link" title="Your referral link">
+                            <button class="btn btn-accent" title="Copy referral link" onclick="copyToClipboard(document.getElementById('referralLink').value)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <div class="mt-3">
+                            <small class="text-success">
+                                <i class="fas fa-check-circle me-1"></i>
+                                You've earned $187.50 from referrals this month!
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Actions -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-custom">
+                    <div class="card-header bg-gradient-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-bolt me-2"></i>Quick Actions</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <a href="deposit.html" class="btn btn-outline-primary w-100">
+                                    <i class="fas fa-plus-circle d-block mb-1"></i>
+                                    <small>Deposit</small>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="withdraw.html" class="btn btn-outline-success w-100">
+                                    <i class="fas fa-minus-circle d-block mb-1"></i>
+                                    <small>Withdraw</small>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="invest.html" class="btn btn-outline-warning w-100">
+                                    <i class="fas fa-chart-line d-block mb-1"></i>
+                                    <small>Invest</small>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="transfers.html" class="btn btn-outline-info w-100">
+                                    <i class="fas fa-exchange-alt d-block mb-1"></i>
+                                    <small>Transfer</small>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-4">
+            <!-- Active Investments -->
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-custom">
+                    <div class="card-header bg-gradient-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-chart-pie me-2"></i>Active Investments</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Plan</th>
+                                        <th>Amount</th>
+                                        <th>ROI</th>
+                                        <th>Progress</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="activeInvestments">
+                                    <tr>
+                                        <td><strong>Crypto Starter</strong></td>
+                                        <td>$5,000</td>
+                                        <td>12%</td>
+                                        <td>
+                                            <div class="progress progress-small">
+                                                <div class="progress-bar progress-bar-65"></div>
+                                            </div>
+                                            <small class="text-muted">65% complete</small>
+                                        </td>
+                                        <td><span class="badge status-active">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Forex Pro</strong></td>
+                                        <td>$10,000</td>
+                                        <td>15%</td>
+                                        <td>
+                                            <div class="progress progress-small">
+                                                <div class="progress-bar bg-success progress-bar-80"></div>
+                                            </div>
+                                            <small class="text-muted">80% complete</small>
+                                        </td>
+                                        <td><span class="badge status-active">Active</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Activity -->
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-custom">
+                    <div class="card-header bg-gradient-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-history me-2"></i>Recent Activity</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-feed" id="recentActivity">
+                            <div class="activity-item">
+                                <div class="activity-icon text-success">
+                                    <i class="fas fa-plus-circle"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <small class="text-muted">2 hours ago</small>
+                                    <p class="mb-0">Deposited $1,000 via USDT</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon text-primary">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <small class="text-muted">1 day ago</small>
+                                    <p class="mb-0">Invested in Crypto Starter plan</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon text-warning">
+                                    <i class="fas fa-coins"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <small class="text-muted">3 days ago</small>
+                                    <p class="mb-0">Earned $125 from investments</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon text-info">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <small class="text-muted">5 days ago</small>
+                                    <p class="mb-0">New referral joined</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Latest Blog Posts -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card border-0 shadow-custom">
+                    <div class="card-header bg-gradient-primary text-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0"><i class="fas fa-blog me-2"></i>Latest Market Insights</h5>
+                        <a href="blog.html" class="btn btn-outline-light btn-sm">View All</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-4" id="latestPosts">
+                            <div class="col-md-4">
+                                <div class="blog-preview">
+                                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400" class="img-fluid rounded mb-3" alt="Blog post">
+                                    <h6><a href="blog.html" class="text-decoration-none">Crypto Market Analysis: What to Expect in 2024</a></h6>
+                                    <small class="text-muted">December 15, 2024</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="blog-preview">
+                                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400" class="img-fluid rounded mb-3" alt="Blog post">
+                                    <h6><a href="blog.html" class="text-decoration-none">Forex Trading Strategies for Beginners</a></h6>
+                                    <small class="text-muted">December 12, 2024</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="blog-preview">
+                                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400" class="img-fluid rounded mb-3" alt="Blog post">
+                                    <h6><a href="blog.html" class="text-decoration-none">Real Estate Investment Trends</a></h6>
+                                    <small class="text-muted">December 10, 2024</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
